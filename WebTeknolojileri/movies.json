@@ -1,0 +1,137 @@
+[
+  {
+    "id": 1,
+    "title": "Yüzüklerin Efendisi: Yüzük Kardeşliği",
+    "category": "Fantastik",
+    "year": 2001,
+    "rating": 8.8,
+    "image": "https://image.tmdb.org/t/p/w500/6oom5QYQ2yQTMJIbnvbkBL9cHo6.jpg",
+    "description": "Karanlık Lord Sauron'un dünyaya hükmetmek için yarattığı Tek Yüzük'ü yok etmekle görevlendirilen bir grup kahramanın macerası."
+  },
+  {
+    "id": 2,
+    "title": "Yüzüklerin Efendisi: İki Kule",
+    "category": "Fantastik",
+    "year": 2002,
+    "rating": 8.7,
+    "image": "https://image.tmdb.org/t/p/w500/5VTN0pR8gcqV3EPUHHfMGnJYN9L.jpg",
+    "description": "Yüzük kardeşliğinin dağılmasının ardından Orta Dünya'nın kaderi için verilen destansı savaşlar devam eder."
+  },
+  {
+    "id": 3,
+    "title": "Yüzüklerin Efendisi: Kralın Dönüşü",
+    "category": "Fantastik",
+    "year": 2003,
+    "rating": 8.9,
+    "image": "https://image.tmdb.org/t/p/w500/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg",
+    "description": "Orta Dünya'nın kaderinin belirleneceği büyük savaş yaklaşırken Frodo Tek Yüzük’ü yok etmek için son adımlarını atar."
+  },
+  {
+    "id": 4,
+    "title": "Inception",
+    "category": "Bilim Kurgu",
+    "year": 2010,
+    "rating": 8.8,
+    "image": "https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg",
+    "description": "Rüyaların içinde rüya gören bir ekibin, bir iş insanının zihnine fikir ekleme görevi."
+  },
+  {
+    "id": 5,
+    "title": "Interstellar",
+    "category": "Bilim Kurgu",
+    "year": 2014,
+    "rating": 8.6,
+    "image": "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
+    "description": "Dünyanın yok oluşa sürüklendiği bir gelecekte, insanlık için yeni bir yaşam alanı arayışı."
+  },
+  {
+    "id": 6,
+    "title": "The Dark Knight",
+    "category": "Aksiyon",
+    "year": 2008,
+    "rating": 9.0,
+    "image": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+    "description": "Batman, Gotham'ı kaosa sürükleyen Joker’e karşı en büyük savaşını verir."
+  },
+  {
+    "id": 7,
+    "title": "The Matrix",
+    "category": "Bilim Kurgu",
+    "year": 1999,
+    "rating": 8.7,
+    "image": "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg",
+    "description": "Gerçekliğin aslında bir simülasyon olduğunu keşfeden Neo'nun özgürlük mücadelesi."
+  },
+  {
+    "id": 8,
+    "title": "Fight Club",
+    "category": "Dram",
+    "year": 1999,
+    "rating": 8.8,
+    "image": "https://image.tmdb.org/t/p/w500/bptfVGEQuv6vDTIMVCHjJ9Dz8PX.jpg",
+    "description": "Kimlik, tüketim toplumu ve kaos temaları işleyen kült bir film."
+  },
+  {
+    "id": 9,
+    "title": "Forrest Gump",
+    "category": "Dram",
+    "year": 1994,
+    "rating": 8.8,
+    "image": "https://image.tmdb.org/t/p/w500/saHP97rTPS5eLmrLQEcANmKrsFl.jpg",
+    "description": "Düşük zekaya sahip ama iyi kalpli Forrest Gump’ın hayatındaki inanılmaz tesadüfler."
+  },
+  {
+    "id": 10,
+    "title": "The Shawshank Redemption",
+    "category": "Dram",
+    "year": 1994,
+    "rating": 9.3,
+    "image": "https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg",
+    "description": "Haksız yere hapse atılan Andy Dufresne’in özgürlük mücadelesi."
+  },
+  {
+    "id": 11,
+    "title": "Pulp Fiction",
+    "category": "Suç",
+    "year": 1994,
+    "rating": 8.9,
+    "image": "https://image.tmdb.org/t/p/w500/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg",
+    "description": "Birbirine bağlı suç hikayelerini Tarantino tarzıyla anlatan kült film."
+  },
+  {
+    "id": 12,
+    "title": "The Godfather",
+    "category": "Suç",
+    "year": 1972,
+    "rating": 9.2,
+    "image": "https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
+    "description": "Corleone ailesinin yükselişi ve mafya dünyasının iç yüzü."
+  },
+  {
+    "id": 13,
+    "title": "The Godfather Part II",
+    "category": "Suç",
+    "year": 1974,
+    "rating": 9.0,
+    "image": "https://image.tmdb.org/t/p/w500/bMadFzhjy9T7R8J48QGq1ngWNAK.jpg",
+    "description": "Michael Corleone'nin güçlenişi ile babası Vito’nun gençlik yıllarının paralel anlatımı."
+  },
+  {
+    "id": 14,
+    "title": "Gladiator",
+    "category": "Aksiyon",
+    "year": 2000,
+    "rating": 8.5,
+    "image": "https://image.tmdb.org/t/p/w500/ty8TGRuvJLPUmAR1H1nRIsgwvim.jpg",
+    "description": "Roma’nın en güçlü generallerinden birinin arenada yeniden doğuş mücadelesi."
+  },
+  {
+    "id": 15,
+    "title": "Avatar",
+    "category": "Bilim Kurgu",
+    "year": 2009,
+    "rating": 7.8,
+    "image": "https://image.tmdb.org/t/p/w500/kyeqWdyUXW608qlYkRqosgbbJyK.jpg",
+    "description": "Pandora gezegenindeki Na'vi halkıyla insanlar arasında geçen etkileyici bir serüven."
+  }
+]
