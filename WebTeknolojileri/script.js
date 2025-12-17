@@ -8,11 +8,13 @@ const sortSelect = document.getElementById('sort-select');
 
 let allMovies = [];
 let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+let showFavoritesOnly = false;
 
-// VERİ ÇEKME
+// --- 1. VERİ ÇEKME ---
 async function init() {
     try {
         const response = await fetch('./movies.json');
+        
         if (!response.ok) throw new Error('Veri çekilemedi!');
         
         allMovies = await response.json();
@@ -20,11 +22,11 @@ async function init() {
         displayMovies(allMovies);
     } catch (error) {
         console.error("Hata:", error);
-        mediaList.innerHTML = `<p style="color:red; text-align:center;">Veriler yüklenirken bir hata oluştu. Lütfen "Live Server" kullandığınızdan emin olun.</p>`;
+        mediaList.innerHTML = `<p style="color:red; text-align:center;">Veriler yüklenirken hata oluştu. Dosya yolunu veya Live Server'ı kontrol edin.</p>`;
     }
 }
 
-// EKRANA BASMA
+// --- 2. EKRANA BASMA ---
 function displayMovies(movies) {
     mediaList.innerHTML = '';
 
@@ -34,10 +36,9 @@ function displayMovies(movies) {
     }
 
     movies.forEach(movie => {
-        // Favori durumunu kontrol etme
+        // Favori kontrolü
         const isFavorite = favorites.some(favId => favId === movie.id);
         
-        // Kart
         const movieCard = document.createElement('article');
         movieCard.classList.add('movie-card');
         
@@ -61,19 +62,24 @@ function displayMovies(movies) {
     });
 }
 
-// ARAMA, FİLTRELEME VE SIRALAMA
+// --- 3. ARAMA, FİLTRELEME VE SIRALAMA ---
 function filterMovies() {
     const searchTerm = searchInput.value.toLowerCase();
     const selectedCategory = categoryFilter.value;
     const sortValue = sortSelect.value;
 
+    // Arama ve Kategori Filtresi
     let filtered = allMovies.filter(movie => {
         const matchesSearch = movie.title.toLowerCase().includes(searchTerm);
         const matchesCategory = selectedCategory === 'all' || movie.category === selectedCategory;
-        return matchesSearch && matchesCategory;
+        
+        // Eğer "Sadece Favoriler" butonu aktifse
+        const matchesFavorite = showFavoritesOnly ? favorites.includes(movie.id) : true;
+
+        return matchesSearch && matchesCategory && matchesFavorite;
     });
 
-
+    // Sıralama Mantığı
     if (sortValue === 'year-asc') {
         filtered.sort((a, b) => a.year - b.year);
     }
@@ -87,22 +93,19 @@ function filterMovies() {
         filtered.sort((a, b) => b.rating - a.rating);
     }
 
-    // 3. Adım: Sonuçları ekrana bas
     displayMovies(filtered);
 }
-
 
 // Event Listener
 sortSelect.addEventListener('change', filterMovies);
 searchInput.addEventListener('input', filterMovies);
 categoryFilter.addEventListener('change', filterMovies);
 
-// MODAL
+// --- 4. MODAL İŞLEMLERİ ---
 function openModal(movieId) {
     const movie = allMovies.find(m => m.id === movieId);
     if (!movie) return;
 
-    // Inline stilleri kaldırdık, yerine 'modal-detail-view' class'ı ekledik
     modalBody.innerHTML = `
         <div class="modal-detail-view">
             <img src="${movie.image}" alt="${movie.title}" class="modal-poster">
@@ -118,33 +121,47 @@ function openModal(movieId) {
     modal.classList.add('active');
 }
 
-    function closeModal() {
-        modal.classList.remove('active');
+function closeModal() {
+    modal.classList.remove('active');
+}
+
+// Kapatma butonu için dinleyici
+const closeBtn = document.querySelector('.close-btn');
+if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+};
+
+// Modal dışına tıklayınca kapatma
+window.onclick = function(event) {
+    if (event.target === modal) {
+        closeModal();
     }
+}
 
-    const closeBtn = document.querySelector('.close-btn');
-    if (closeBtn) {
-        closeBtn.addEventListener('click', closeModal);
-    };
+// ESC tuşuna basınca kapatma
+window.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeModal();
+    }
+});
 
-// FAVORİLER
+// --- 5. FAVORİ İŞLEMLERİ ---
 function toggleFavorite(event, id) {
+    event.stopPropagation();
     
     const index = favorites.indexOf(id);
     
     if (index === -1) {
-        favorites.push(id);
+        favorites.push(id); // Listede yoksa ekle
     } else {
-        favorites.splice(index, 1);
+        favorites.splice(index, 1); // Varsa çıkar
     }
 
     localStorage.setItem('favorites', JSON.stringify(favorites));
     
+    // Görünümü güncelle (Filtreleri koruyarak)
     filterMovies(); 
 }
-
-
-let showFavoritesOnly = false;
 
 function toggleFavorites() {
     showFavoritesOnly = !showFavoritesOnly;
@@ -153,13 +170,13 @@ function toggleFavorites() {
     if (showFavoritesOnly) {
         btn.textContent = "Tüm Filmleri Göster";
         btn.style.backgroundColor = "#27ae60"; 
-        
-        const favoriteMovies = allMovies.filter(movie => favorites.includes(movie.id));
-        displayMovies(favoriteMovies);
     } else {
         btn.textContent = "⭐ Favorilerim";
         btn.style.backgroundColor = "#e74c3c";
-        filterMovies();
     }
+    
+    filterMovies();
 }
+
+// Uygulamayı Başlat
 init();
